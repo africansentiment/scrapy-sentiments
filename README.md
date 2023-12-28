@@ -1,1 +1,1 @@
-# scrapy-publishers
+# scrapy-sentiments
