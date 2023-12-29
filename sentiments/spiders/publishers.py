@@ -14,8 +14,8 @@ target_domains = os.getenv("TARGET_DOMAINS").split(" ")
 target_urls = os.getenv("TARGET_URLS").split(" ")
 
 
-class PublisherSpider(scrapy.Spider):
-    name = "publisher"
+class PublishersSpider(scrapy.Spider):
+    name = "publishers"
     allowed_domains = target_domains
 
     def start_requests(self):
