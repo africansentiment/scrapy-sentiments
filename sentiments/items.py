@@ -14,13 +14,13 @@ class SentimentsItem(scrapy.Item):
 
 class PublisherItem(scrapy.Item):
     identifier = scrapy.Field()
-    publisher = scrapy.Field()
     date = scrapy.Field()
-    headline = scrapy.Field()
+    publisher = scrapy.Field()
     authors = scrapy.Field()
-    languages = scrapy.Field()
+    title = scrapy.Field()
     text = scrapy.Field()
     summary = scrapy.Field()
     keywords = scrapy.Field()
+    languages = scrapy.Field()
     city = scrapy.Field()
     country = scrapy.Field()
