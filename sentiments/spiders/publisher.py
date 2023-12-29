@@ -4,6 +4,8 @@ import os
 from scrapy.loader import ItemLoader
 from dotenv import load_dotenv
 
+from sentiments.items import PublisherItem
+
 # load environment variables
 load_dotenv()
 
@@ -22,9 +24,22 @@ class PublisherSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        # create an item loader for publiser items
+        for publisher in response.css("div.publisher"):
+            # create an item loader for publiser items
+            loader = ItemLoader(item=PublisherItem(), response=publisher)
 
-        # load the response into the item loader
-        # yield the item
+            # load the response into the item loader
+            loader.add_css("identifier", "")
+            loader.add_css("publisher", "")
+            loader.add_css("authors", "")
+            loader.add_css("date", "")
+            loader.add_css("title", "")
+            loader.add_css("text", "")
+            loader.add_css("summary", "")
+            loader.add_css("keywords", "")
+            loader.add_css("languages", "")
+            loader.add_css("city", "")
+            loader.add_css("country", "")
 
-        pass
+            # yield the item
+            yield loader.load_item()
