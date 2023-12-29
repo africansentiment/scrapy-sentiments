@@ -18,7 +18,7 @@ class SentimentsPipeline:
 
 
 class MongoPipeline(object):
-    collection_name = "scrapy_items"  # Collection name
+    collection_name = "scrapy_items"
 
     def open_spider(self, spider):
         self.client = pymongo.MongoClient(os.getenv("MONGO_URI"))
