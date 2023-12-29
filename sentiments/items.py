@@ -6,13 +6,18 @@
 import scrapy
 
 
-class SentimentsItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-
-
 class PublisherItem(scrapy.Item):
+    identifier = scrapy.Field()
+    name = scrapy.Field()
+    description = scrapy.Field()
+    website = scrapy.Field()
+    languages = scrapy.Field()
+    city = scrapy.Field()
+    country = scrapy.Field()
+    is_in_africa = scrapy.Field()
+
+
+class ArticleItem(scrapy.Item):
     identifier = scrapy.Field()
     date = scrapy.Field()
     publisher = scrapy.Field()
@@ -21,6 +26,6 @@ class PublisherItem(scrapy.Item):
     text = scrapy.Field()
     summary = scrapy.Field()
     keywords = scrapy.Field()
-    languages = scrapy.Field()
+    language = scrapy.Field()
     city = scrapy.Field()
     country = scrapy.Field()

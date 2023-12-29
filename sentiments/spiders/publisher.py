@@ -30,13 +30,9 @@ class PublisherSpider(scrapy.Spider):
 
             # load the response into the item loader
             loader.add_css("identifier", "")
-            loader.add_css("publisher", "")
-            loader.add_css("authors", "")
-            loader.add_css("date", "")
-            loader.add_css("title", "")
-            loader.add_css("text", "")
-            loader.add_css("summary", "")
-            loader.add_css("keywords", "")
+            loader.add_css("name", "")
+            loader.add_css("description", "")
+            loader.add_css("website", "")
             loader.add_css("languages", "")
             loader.add_css("city", "")
             loader.add_css("country", "")
