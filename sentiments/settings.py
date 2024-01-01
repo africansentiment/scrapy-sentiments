@@ -97,4 +97,4 @@ MONGO_URI = "mongodb://localhost:27017"
 MONGO_DB = "sentiments"
 
 # List of URLs to scrape
-PUBLISHERS_TARGET_URLS = ""
+PUBLISHERS_SOURCE_URLS = ""

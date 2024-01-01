@@ -10,7 +10,7 @@ class PublishersSpider(scrapy.Spider):
 
     def start_requests(self):
         # yield a request for each url
-        for url in self.settings.get("PUBLISHERS_TARGET_URLS", "").split():
+        for url in self.settings.get("PUBLISHERS_SOURCE_URLS", "").split():
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
