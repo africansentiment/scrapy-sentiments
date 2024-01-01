@@ -91,3 +91,10 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# MongoDB settings
+MONGO_URI = "mongodb://localhost:27017"
+MONGO_DB = "sentiments"
+
+# List of URLs to scrape
+PUBLISHERS_TARGET_URLS = ""
