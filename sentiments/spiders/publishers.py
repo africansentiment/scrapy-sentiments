@@ -1,30 +1,20 @@
+from typing import Any, Optional
 import scrapy
-import os
 
 from scrapy.loader import ItemLoader
-from dotenv import load_dotenv
-
 from sentiments.items import PublisherItem
-
-# load environment variables
-load_dotenv()
-
-# get the target domain and url from environment variables
-target_domains = os.getenv("TARGET_DOMAINS").split(" ")
-target_urls = os.getenv("TARGET_URLS").split(" ")
 
 
 class PublishersSpider(scrapy.Spider):
     name = "publishers"
-    allowed_domains = target_domains
 
     def start_requests(self):
         # yield a request for each url
-        for url in target_urls:
+        for url in self.settings.get("PUBLISHERS_TARGET_URLS", "").split():
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        for publisher in response.css("div.publisher"):
+        for publisher in response.css(".publisher"):
             # create an item loader for publiser items
             loader = ItemLoader(item=PublisherItem(), response=publisher)
 
