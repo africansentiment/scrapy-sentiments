@@ -98,3 +98,4 @@ MONGO_DB = "sentiments"
 
 # List of URLs to scrape
 PUBLISHERS_SOURCE_URLS = ""
+ARTICLES_SOURCE_URLS = ""
