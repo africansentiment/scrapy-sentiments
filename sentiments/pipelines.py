@@ -5,7 +5,8 @@
 
 
 # useful for handling different item types with a single interface
-import pymongo
+from pymongo import MongoClient
+from pymongo.errors import DuplicateKeyError
 
 
 class SentimentsPipeline:
@@ -28,7 +29,7 @@ class MongoPipeline(object):
         )
 
     def open_spider(self, spider):
-        self.client = pymongo.MongoClient(self.mongo_uri)
+        self.client = MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
 
         # Ensure a unique index on the 'unique_field'
@@ -40,7 +41,7 @@ class MongoPipeline(object):
     def process_item(self, item, spider):
         try:
             self.db[spider.name].insert_one(dict(item))
-        except pymongo.errors.DuplicateKeyError:
+        except DuplicateKeyError:
             spider.logger.debug(f"Duplicate item found: {item['identifier']}")
 
         return item
