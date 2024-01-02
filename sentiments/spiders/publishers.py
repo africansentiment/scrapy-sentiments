@@ -1,4 +1,3 @@
-from typing import Any, Optional
 import scrapy
 
 from scrapy.loader import ItemLoader
