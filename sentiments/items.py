@@ -19,12 +19,15 @@ class PublisherItem(scrapy.Item):
 
 class ArticleItem(scrapy.Item):
     identifier = scrapy.Field()
+    publisher_identifier = scrapy.Field()
     date = scrapy.Field()
-    publisher = scrapy.Field()
     authors = scrapy.Field()
     title = scrapy.Field()
     text = scrapy.Field()
     summary = scrapy.Field()
+    title_sentiment = scrapy.Field()
+    text_sentiment = scrapy.Field()
+    summary_sentiment = scrapy.Field()
     keywords = scrapy.Field()
     language = scrapy.Field()
     city = scrapy.Field()
