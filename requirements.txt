@@ -1,3 +1,6 @@
 scrapy
 pymongo
-python-dotenv
+newspaper3k
+python-dateutil
+textblob
+wayback
